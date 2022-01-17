@@ -17,7 +17,7 @@ table, th, td {
 <ul>
 	<li><a>FlyAway</a></li>
 	<li><a href="http://localhost:8080/FlyAway/homePage.html">Home</a></li>
-  	<li style="float:right"><a href="logout">Logout</a></li>
+  	<li style="float:right"><a href="user/logout">Logout</a></li>
 </ul>
   <h1>	Welcome : <%= session.getAttribute("name") %></h1> 
 	<form action="user/checkoutPage" method="post"> 

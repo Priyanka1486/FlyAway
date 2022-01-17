@@ -13,8 +13,10 @@ public class AddFlightServlet extends HttpServlet {
 		
 		double price = Integer.parseInt(request.getParameter("price"));
 		int available_seat = Integer.parseInt(request.getParameter("available_seat"));
-		Time arrival_time= Time.valueOf(request.getParameter("arrival_time"));
-		Time departure_time =Time.valueOf(request.getParameter("departure_time"));
+		String arr_time = request.getParameter("arrival_time") + ":00";
+		String dep_time = request.getParameter("departure_time") + ":00";
+		Time arrival_time = Time.valueOf(arr_time);
+		Time departure_time = Time.valueOf(dep_time);
 		int route_id = Integer.parseInt(request.getParameter("route"));
 		DBConnection con = new DBConnection();
 		
@@ -28,7 +30,7 @@ public class AddFlightServlet extends HttpServlet {
 			}
 			else {
 				System.out.println("Adding Flight Fail");
-				response.sendRedirect("adminlogin.html");
+				response.sendRedirect("http://localhost:8080/FlyAway/adminlogin.html");
 			}
 		}
 	}

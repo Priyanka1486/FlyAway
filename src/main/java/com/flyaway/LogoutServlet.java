@@ -13,6 +13,6 @@ public class LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 	//	session.removeAttribute("name");
 		session.invalidate();
-		response.sendRedirect("http://localhost:8080/FlyAway/loginPage");
+		response.sendRedirect("http://localhost:8080/FlyAway/homePage.html");
 	}
 }
