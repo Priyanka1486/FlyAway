@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>FlyAway</display-name>
+  <welcome-file-list>
+	<welcome-file>homePage.html</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+     
+  <filter>
+  	<filter-name>registrationValidation</filter-name>
+  	<filter-class>com.flyaway.RegistrationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>registrationValidation</filter-name>
+  	<url-pattern>/register</url-pattern> 	
+  </filter-mapping>
+
+  <filter>
+  	<filter-name>authFilter</filter-name>
+  	<filter-class>com.flyaway.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>authFilter</filter-name>
+  	<url-pattern>/user/*</url-pattern>
+  	<dispatcher>FORWARD</dispatcher>
+  	<dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <filter>
+  	<filter-name>adminauthFilter</filter-name>
+  	<filter-class>com.flyaway.AdminAuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>adminauthFilter</filter-name>
+  	<url-pattern>/admin/details/*</url-pattern>
+  	<dispatcher>FORWARD</dispatcher>
+  	<dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+
+  <servlet>
+  	<servlet-name>loginPage</servlet-name>
+  	<jsp-file>/login.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>loginPage</servlet-name>
+  	<url-pattern>/loginPage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>registrationPage</servlet-name>
+  	<jsp-file>/registration.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>registrationPage</servlet-name>
+  	<url-pattern>/registrationPage</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>dashboardPage</servlet-name>
+  	<jsp-file>/dashboard.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dashboardPage</servlet-name>
+  	<url-pattern>/dashboardPage</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>searchResultPage</servlet-name>
+  	<jsp-file>/searchResult.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>searchResultPage</servlet-name>
+  	<url-pattern>/user/searchResultPage</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+  	<servlet-name>confirmationPage</servlet-name>
+  	<jsp-file>/confirmationPage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>confirmationPage</servlet-name>
+  	<url-pattern>/user/confirmationPage</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>bookingFail</servlet-name>
+  	<jsp-file>/bookingfail.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>bookingFail</servlet-name>
+  	<url-pattern>/user/bookingFail</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>checkoutPage</servlet-name>
+  	<jsp-file>/checkout.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>checkoutPage</servlet-name>
+  	<url-pattern>/user/checkoutPage</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>dashboardServlet</servlet-name>
+  	<servlet-class>com.flyaway.DashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>dashboardServlet</servlet-name>
+  	<url-pattern>/dashboard</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>homeServlet</servlet-name>
+  	<servlet-class>com.flyaway.HomePageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>homeServlet</servlet-name>
+  	<url-pattern>/home</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>registerServlet</servlet-name>
+    <servlet-class>com.flyaway.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registerServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>  
+    
+  <servlet>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>com.flyaway.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+    <servlet-name>confirmationServlet</servlet-name>
+    <servlet-class>com.flyaway.ConfirmationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>confirmationServlet</servlet-name>
+    <url-pattern>/user/confirmation</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>com.flyaway.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/user/logout</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>adminLoginServlet</servlet-name>
+    <servlet-class>com.flyaway.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminLoginServlet</servlet-name>
+    <url-pattern>/adminlogin</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>addrouteServlet</servlet-name>
+    <servlet-class>com.flyaway.AddRouteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addrouteServlet</servlet-name>
+    <url-pattern>/admin/details/addroute</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>routeListServlet</servlet-name>
+    <servlet-class>com.flyaway.RouteListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>routeListServlet</servlet-name>
+    <url-pattern>/admin/details/routelist</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>flightListServlet</servlet-name>
+    <servlet-class>com.flyaway.FlightListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>flightListServlet</servlet-name>
+    <url-pattern>/admin/details/flightlist</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>bookingListServlet</servlet-name>
+    <servlet-class>com.flyaway.BookingListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bookingListServlet</servlet-name>
+    <url-pattern>/admin/details/bookinglist</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>addflightServlet</servlet-name>
+    <servlet-class>com.flyaway.AddFlightServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addflightServlet</servlet-name>
+    <url-pattern>/admin/details/addflight</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>routeServlet</servlet-name>
+    <jsp-file>/routes.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>routeServlet</servlet-name>
+    <url-pattern>/admin/details/routes</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>flightServlet</servlet-name>
+    <jsp-file>/flights.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>flightServlet</servlet-name>
+    <url-pattern>/admin/details/flights</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>bookingServlet</servlet-name>
+    <jsp-file>/booking.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bookingServlet</servlet-name>
+    <url-pattern>/admin/details/booking</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>admindashboard</servlet-name>
+    <jsp-file>/admindashboard.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admindashboard</servlet-name>
+    <url-pattern>/admin/details/dashboard</url-pattern>
+  </servlet-mapping>  
+    
+  <servlet>
+    <servlet-name>addroute</servlet-name>
+    <jsp-file>/addroute.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addroute</servlet-name>
+    <url-pattern>/admin/details/addnewroute</url-pattern>
+  </servlet-mapping>  
+
+  <servlet>
+    <servlet-name>addflight</servlet-name>
+    <jsp-file>/addflight.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addflight</servlet-name>
+    <url-pattern>/admin/details/addnewflight</url-pattern>
+  </servlet-mapping>  
+  <servlet>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <servlet-class>com.flyaway.ChangePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePasswordServlet</servlet-name>
+    <url-pattern>/admin/details/changePassword</url-pattern>
+  </servlet-mapping>  
+  <servlet>
+    <servlet-name>changePassword</servlet-name>
+    <jsp-file>/changePassword.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changePassword</servlet-name>
+    <url-pattern>/admin/details/changePasswordPage</url-pattern>
+  </servlet-mapping>  
+
+</web-app>

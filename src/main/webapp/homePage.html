@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HomePage</title>
+<link rel="stylesheet" type="text/css" href="navbar.css" >
+<style>
+table, th, td {
+  	border: 0px solid black;
+}
+</style>
+</head>
+<body>
+<ul>
+	<li><a>FlyAway</a></li>
+</ul>
+	<h1>Home Page</h1>
+	<h2>Please, Enter Travel Details :</h2>
+	<form action="home" method="get">
+		<table>
+			<tr>
+				<td><label>From : </label></td>
+				<td><input type="text" name="source" pattern="[A-Z][a-z]*" title="Enter name of place" required="required"></td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td><label>To : </label></td>
+				<td><input type="text" name="destination" pattern="[A-Za-z]*" title="Enter name of place" required="required" ></td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td><label>Date : </label></td>
+				<td><input type="date" id="traveldate"  name="traveldate" required="required"></td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td><label>Number of Passengers : </label></td>
+				<td><input type="number" name="passengers" pattern="[0-9]" title="Enter no. of Passengers" required="required" ></td>
+			</tr>
+			<tr></tr>
+		</table>
+		<input type="submit" value="Search"></td>
+	</form>
+</body>
+</html>

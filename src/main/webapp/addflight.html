@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add New Flight</title>
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/FlyAway/navbar.css" >
+</head>
+<body>
+	<ul>
+		<li><a>FlyAway</a></li>
+		<li><a href="http://localhost:8080/FlyAway/homePage.html">Home</a></li>
+		<li style="float:right"><a>Admin</a></li>
+	</ul>
+	<h1>Add New Flight : </h1>
+	<form action="addflight" method="post">
+		<table>
+			<tr>
+				<td>Price</td>
+				<td>:</td>
+				<td><input type="number" name="price" required="required" ></td>
+			</tr>
+			<tr></tr>
+			<tr>
+				<td>Departure Time</td>
+				<td>:</td>
+				<td><input type="time" name="departure_time" required="required"></td>			
+			</tr>
+			<tr></tr>
+			<tr>
+				<td>Arrival Time</td>
+				<td>:</td>
+				<td><input type="time" name="arrival_time" required="required" ></td>			
+			</tr>
+			<tr></tr>
+			<tr>
+				<td>Available Seat</td>
+				<td>:</td>
+				<td><input type="number" name="available_seat" required="required"></td>			
+			</tr>
+			<tr></tr>
+			<tr>
+				<td>Route Id</td>
+				<td>:</td>
+				<td><input type="number" name="route" required="required"></td>			
+			</tr>
+			<tr></tr>
+			<tr>
+				<td><input type="submit" value="Add New Flight" ></td>	
+			</tr>
+		</table>			 
+	</form>
+</body>
+</html>
