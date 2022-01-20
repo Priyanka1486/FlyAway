@@ -16,7 +16,7 @@ public class RegistrationServlet extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmpassword");
 		
 		UserDetail user = new UserDetail(firstName,lastName,email,password);
-		DBConnection conn = new DBConnection();
+		DBConnection conn = DBConnection.getDBConnectionInstance();
 		if(conn != null) {
 			boolean flag = conn.userRegistration(user);
 			if(flag)

@@ -14,7 +14,7 @@ public class ChangePasswordServlet extends HttpServlet {
 			String newpassword = request.getParameter("new_password");		
 			String confirmnewpassword = request.getParameter("confirm_password");
 			if(newpassword.equals(confirmnewpassword)) {
-				DBConnection con = new DBConnection();  
+				DBConnection con = DBConnection.getDBConnectionInstance();  
 				if(con!= null) {
 					HttpSession session = request.getSession();
 					String email =(String)session.getAttribute("email");

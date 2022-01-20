@@ -12,7 +12,7 @@ public class AdminLoginServlet extends HttpServlet{
 			throws ServletException,IOException {
 		String email= request.getParameter("email");
 		String password = request.getParameter("password");		
-		DBConnection con = new DBConnection();  
+		DBConnection con = DBConnection.getDBConnectionInstance();  
 		if(con!= null) {
 			String name = con.adminLoginCheck(email,password);
 			if(name!="" && name != null) {

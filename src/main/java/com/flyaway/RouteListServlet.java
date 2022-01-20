@@ -10,7 +10,7 @@ public class RouteListServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException, IOException{
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		List<RouteDetails> routes = con.getRouteList();
 		if(routes.isEmpty() == false) {
 			request.setAttribute("routes", routes);

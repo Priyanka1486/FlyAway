@@ -11,7 +11,7 @@ public class ConfirmationServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		DBConnection conn = new DBConnection();
+		DBConnection conn = DBConnection.getDBConnectionInstance();
 		if(conn != null) {
 			boolean updateflag = false;
 			HttpSession session = request.getSession(false);

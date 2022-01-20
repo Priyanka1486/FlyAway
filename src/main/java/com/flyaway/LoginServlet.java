@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet{
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		UserDetail user = null;
-		DBConnection conn = new DBConnection();
+		DBConnection conn = DBConnection.getDBConnectionInstance();
 		if(conn != null) {
 			user = conn.userLoginCheck(email,password);
 			if(user != null) {

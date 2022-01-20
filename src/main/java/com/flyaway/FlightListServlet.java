@@ -9,7 +9,7 @@ import com.dbconnection.*;
 public class FlightListServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException, IOException{
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		List<FlightDetails> flights = con.getFlightList();
 		if(flights.isEmpty() == false) {
 			request.setAttribute("flights", flights);

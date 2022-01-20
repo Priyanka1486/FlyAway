@@ -4,16 +4,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.flyaway.*;
-
 import java.io.*;
 
 public class DBConnection {
 	private final String URL = "jdbc:mysql://localhost:3306/flyawaydb";
 	private final String USER = "root";
 	private final String PASSWORD = "Test@123";
-	private Connection connection = null;
+	public Connection connection = null;
+	private static DBConnection dbcon = null;
 	
-	public DBConnection(){
+	private DBConnection(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			this.connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -24,8 +24,11 @@ public class DBConnection {
 	}
 	
 	// Get DB Connection 
-	public Connection getConnection() {
-		return this.connection;
+	public static DBConnection getDBConnectionInstance() {
+		if(dbcon == null) {
+			dbcon = new DBConnection();
+		}
+		return dbcon;
 	}
 	
 	//Insert into Table
@@ -179,9 +182,6 @@ public class DBConnection {
 		 int id=0;
 		 if(this.connection != null) {
 			 try {
-			//	 String query = "SELECT booking_id FROM booking WHERE traveldate='"+traveldate+"' and flight_no ="+flight_no+" and email='"+email+"'";
-			//	 Statement stm = this.connection.createStatement();
-			//	 ResultSet rs = stm.executeQuery(query);
 				 String query = "SELECT booking_id FROM booking WHERE traveldate=? and flight_no=? and email=?";
 				 PreparedStatement ps = this.connection.prepareStatement(query);
 				 ps.setString(1, traveldate);

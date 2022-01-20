@@ -18,7 +18,7 @@ public class AddFlightServlet extends HttpServlet {
 		Time arrival_time = Time.valueOf(arr_time);
 		Time departure_time = Time.valueOf(dep_time);
 		int route_id = Integer.parseInt(request.getParameter("route"));
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		
 		if(con!= null) {
 			FlightDetails flight = new FlightDetails(price,departure_time,arrival_time,available_seat,route_id);

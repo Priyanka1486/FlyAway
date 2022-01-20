@@ -10,7 +10,7 @@ public class BookingListServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException, IOException{
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		List<BookingDetails> bookings = con.getBookingList();
 		if(bookings.isEmpty() == false) {
 			request.setAttribute("bookings", bookings);

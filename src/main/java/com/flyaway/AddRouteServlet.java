@@ -11,7 +11,7 @@ public class AddRouteServlet extends HttpServlet {
 			throws ServletException,IOException{
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		if(con!= null){
 			RouteDetails route = new RouteDetails(source,destination);
 			System.out.println(route);

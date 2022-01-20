@@ -16,7 +16,7 @@ public class DashboardServlet extends HttpServlet{
 		String travelDate = request.getParameter("traveldate");
 		String passengers = request.getParameter("passengers");	
 		List flights = null;
-		DBConnection con = new DBConnection();
+		DBConnection con = DBConnection.getDBConnectionInstance();
 		if(con != null) {
 		//	flights = con.getAvailableFlights(source,destination,travelDate);
 			flights = con.flightSearch(source, destination);
